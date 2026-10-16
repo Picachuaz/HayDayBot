@@ -16,7 +16,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - uses: android-actions/setup-android@v3
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 34
+          build-tools: '34.0.0'
+          components: |
+            platform-tools
+            platforms;android-34
+            build-tools;34.0.0
 
       - name: Generate Gradle Wrapper
         run: |
